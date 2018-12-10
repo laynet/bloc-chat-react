@@ -22,7 +22,7 @@ class App extends Component {
 
           <p>
             Bloc Chat
-            <RoomList />
+            <RoomList firebase={firebase} />
           </p>
 
       </div>
