@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import App from '../App.js';
 
 class RoomList extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class RoomList extends Component {
   render() {
     return(
       <div>
-        {this.state.rooms.map()}
+        {this.props.rooms.map()}
+        //need to figure out how to fucking use map again to print the fucking rooms
       </div>
     );
   }
