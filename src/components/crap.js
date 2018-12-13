@@ -3,7 +3,7 @@
     <li key={room.key} className
   )}
 </ul>
-  //need to figure out how to fucking use map again to print the fucking rooms
+
 
       {this.state.rooms.map( room =>
           <li key={room.key} className={ this.props.activeRoom && this.props.activeRoom.key === room.key ? 'active' : '' }>

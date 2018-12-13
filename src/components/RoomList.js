@@ -21,11 +21,14 @@ class RoomList extends Component {
 
 }
 
-  render() {
-    return(
-    
-    );
-  }
+render() {
+  return(
+    <ul>
+      {this.state.rooms.map( rooms =>
+      <li key={rooms.key}></li>)}
+    </ul>
+  );
+}
 
 
 }
