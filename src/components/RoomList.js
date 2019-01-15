@@ -45,6 +45,7 @@ class RoomList extends Component {
           <input type="submit" value="Submit" />
         </form>
         //onsubmit executes createRoom method that pushes new room to firebase
+        //
         <ul>
           {this.state.rooms.map( (room, index) =>
           <li key={index}>{room.name}</li>)}
