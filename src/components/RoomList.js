@@ -28,6 +28,7 @@ class RoomList extends Component {
     this.roomsRef.push({
       name: this.state.newRoomName
     });
+    this.setState({newRoomName: ""});
   }
 
   handleChange(event){
@@ -44,8 +45,6 @@ class RoomList extends Component {
           <input type="text" value={this.state.newRoomName} onChange={this.handleChange}/>
           <input type="submit" value="Submit" />
         </form>
-        //onsubmit executes createRoom method that pushes new room to firebase
-        //
         <ul>
           {this.state.rooms.map( (room, index) =>
           <li key={index}>{room.name}</li>)}
