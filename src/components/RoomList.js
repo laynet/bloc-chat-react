@@ -28,7 +28,8 @@ class RoomList extends Component {
     this.roomsRef.push({
       name: this.state.newRoomName
     });
-  }
+    this.setState({newRoomName: ""});
+  } 
 
   handleChange(event){
     console.log('boo');
