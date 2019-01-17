@@ -29,14 +29,16 @@ class RoomList extends Component {
       name: this.state.newRoomName
     });
     this.setState({newRoomName: ""});
+    console.log('createRoom');
   }
 
   handleChange(event){
-    console.log('boo');
+    console.log('handleChange');
     this.setState({newRoomName: event.target.value});
   }
 
-
+  //make rooms clickable
+  //click on a room and the corresponding message shows up and displays in MessageList
 
   render() {
     return(
@@ -48,6 +50,7 @@ class RoomList extends Component {
         <ul>
           {this.state.rooms.map( (room, index) =>
           <li key={index}>{room.name}</li>)}
+          //make li clickable here?
         </ul>
       </div>
     );

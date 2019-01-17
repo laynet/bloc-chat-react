@@ -15,17 +15,17 @@ class MessageList extends Component {
     this.messagesRef.on('child_added', snapshot => {
       const message = snapshot.val();
       message.key = snapshot.key;
-      this.setState({ messages: this.state.messages.concat( message ) }, () => console.log(message))
-
+      this.setState({ messages: this.state.messages.concat( message ) })
     });
   }
 
 
-  
+
   render() {
     return(
       <div>
       <h1> Messages </h1>
+        //display only the message that corresponds with the room that is clicked
         <ul>
           {this.state.messages.map( (message, index) =>
               <li key={index}>{message.content}</li>
