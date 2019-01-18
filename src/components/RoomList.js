@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import App from '../App.js';
+import MessageList from './MessageList';
 
 class RoomList extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class RoomList extends Component {
     this.createRoom = this.createRoom.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.roomsRef = this.props.firebase.database().ref('rooms');
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -37,8 +39,12 @@ class RoomList extends Component {
     this.setState({newRoomName: event.target.value});
   }
 
-  //make rooms clickable
-  //click on a room and the corresponding message shows up and displays in MessageList
+  handleClick(event){
+    event.preventDefault();
+    console.log('clicked');
+  }
+  //when room is clicked, the message corresponding to that room is diplayed in MessageList
+
 
   render() {
     return(
@@ -49,8 +55,7 @@ class RoomList extends Component {
         </form>
         <ul>
           {this.state.rooms.map( (room, index) =>
-          <li key={index}>{room.name}</li>)}
-          //make li clickable here?
+          <li key={index} onClick={this.handleClick()}>{room.name}</li>)}
         </ul>
       </div>
     );
