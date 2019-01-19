@@ -28,7 +28,8 @@ class App extends Component {
 
   setActiveRoom(roomFromChild){
     this.setState({activeRoom: roomFromChild });
-    console.log(roomFromChild.key);
+    //console.log(roomFromChild.key);
+    this.props.getMessageFromRoom();
   }
 
   render() {

@@ -19,6 +19,10 @@ class MessageList extends Component {
     });
   }
 
+  getMessageFromRoom(room) {
+    console.log(room.key + "get message");
+  }
+
 
 
   render() {
