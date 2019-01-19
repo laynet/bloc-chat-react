@@ -16,3 +16,7 @@ handleClick should call setActiveRoom
 and setActiveRoom should call setState with the new room object
 
 messages for room1 and room2 need to stop being displayed
+
+hanndleClick targets the room, and is passed to setActiveRoom.
+setActive room sets the state to whatever handleClick picked
+setActiveRoom is passed to MessageList where we write a function that displays only the activeRoom

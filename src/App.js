@@ -20,16 +20,16 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //activeRoom: ""
+      activeRoom: ""
       //neeed to call whatever's being clicked
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
   }
 
-  setActiveRoom() {
+  setActiveRoom(event) {
     //this.setState({activeRoom: //room that's clicked);
-    console.log('new room set');
+    this.setState = ({ activeRoom: this.roomsRef.child(event.target.textContent) });
     //call setState with the new room object
 
   }

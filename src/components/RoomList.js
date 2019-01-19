@@ -41,7 +41,8 @@ class RoomList extends Component {
 
   handleClick(event){
     event.preventDefault();
-    console.log(event.target.textContent);
+    console.log(this.props.setActiveRoom());
+
     //this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
     //this.props.setActiveRoom();
   }
