@@ -21,23 +21,20 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: ""
-      //neeed to call whatever's being clicked
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
   }
 
-  setActiveRoom(event) {
-    //this.setState({activeRoom: //room that's clicked);
-    this.setState = ({ activeRoom: this.roomsRef.child(event.target.textContent) });
-    //call setState with the new room object
-
+  setActiveRoom(roomFromChild){
+    this.setState({activeRoom: roomFromChild });
+    console.log(roomFromChild.key);
   }
 
   render() {
     return (
       <div className="App">
-        <RoomList firebase={firebase} />
+        <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
         <MessageList firebase={firebase} />
       </div>
     );

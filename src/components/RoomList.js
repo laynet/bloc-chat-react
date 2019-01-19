@@ -41,13 +41,9 @@ class RoomList extends Component {
 
   handleClick(event){
     event.preventDefault();
-    console.log(this.props.setActiveRoom());
-
-    //this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
-    //this.props.setActiveRoom();
+    this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
   }
-  //when room is clicked, the message corresponding to that room is diplayed in MessageList
-
+  
 
   render() {
     return(
