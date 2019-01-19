@@ -7,7 +7,7 @@ class RoomList extends Component {
     super(props);
     this.state = {
     rooms: [],
-    newRoomName: ""
+    newRoomName: "",
     };
 
     this.createRoom = this.createRoom.bind(this);
@@ -41,7 +41,9 @@ class RoomList extends Component {
 
   handleClick(event){
     event.preventDefault();
-    console.log('clicked');
+    console.log(event.target.textContent);
+    //this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
+    //this.props.setActiveRoom();
   }
   //when room is clicked, the message corresponding to that room is diplayed in MessageList
 
@@ -55,7 +57,7 @@ class RoomList extends Component {
         </form>
         <ul>
           {this.state.rooms.map( (room, index) =>
-          <li key={index} onClick={this.handleClick()}>{room.name}</li>)}
+          <li key={index} onClick={this.handleClick}>{room.name}</li>)}
         </ul>
       </div>
     );

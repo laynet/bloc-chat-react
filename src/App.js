@@ -20,9 +20,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //active room stored here
-    }
+      //activeRoom: ""
+      //neeed to call whatever's being clicked
+    };
+
+    this.setActiveRoom = this.setActiveRoom.bind(this);
   }
+
+  setActiveRoom() {
+    //this.setState({activeRoom: //room that's clicked);
+    console.log('new room set');
+    //call setState with the new room object
+
+  }
+
   render() {
     return (
       <div className="App">

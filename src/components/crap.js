@@ -10,7 +10,9 @@
 </ul>
 handleClick needs to setActiveRoom on app js
 
-so app js needs a new state property called activeRoom
-and app js need a function call setActiveRoom
+//so app js needs a new state property called activeRoom
+//and app js need a function call setActiveRoom
 handleClick should call setActiveRoom
 and setActiveRoom should call setState with the new room object
+
+messages for room1 and room2 need to stop being displayed
