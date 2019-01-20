@@ -21,20 +21,17 @@ class MessageList extends Component {
     });
   }
 
-  getMessageFromRoom(activeRoom) {
-    //activeRoom.filter()
-  }
 
 
 
   render() {
-    console.log(this.props.activeRoom);
     return(
       <div>
       <h1> Messages </h1>
-        //display only the message that corresponds with the room that is clicked
         <ul>
-          {this.state.messages.map( (message, index) =>
+          {this.state.messages
+            .filter( message =>  message.roomId === this.props.activeRoom.key)
+            .map( (message, index) =>
               <li key={index}>{message.content}</li>
             )
           }
