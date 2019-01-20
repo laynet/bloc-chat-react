@@ -20,3 +20,12 @@ messages for room1 and room2 need to stop being displayed
 hanndleClick targets the room, and is passed to setActiveRoom.
 setActive room sets the state to whatever handleClick picked
 setActiveRoom is passed to MessageList where we write a function that displays only the activeRoom
+
+
+in your `componentDidMount` you will add an event listener to pull all the messages from the database and save them to the state
+
+{
+this.state.messages
+  .filter(...)
+  .map(...)
+}
