@@ -43,7 +43,7 @@ class RoomList extends Component {
     event.preventDefault();
     this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
   }
-  
+
 
   render() {
     return(
