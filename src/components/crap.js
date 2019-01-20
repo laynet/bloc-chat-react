@@ -23,3 +23,9 @@ setActiveRoom is passed to MessageList where we write a function that displays o
 
 
 in your `componentDidMount` you will add an event listener to pull all the messages from the database and save them to the state
+
+{
+this.state.messages
+  .filter(...)
+  .map(...)
+}

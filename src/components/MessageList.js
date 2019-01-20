@@ -6,9 +6,11 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
+      activeMessage: ""
     };
 
     this.messagesRef = this.props.firebase.database().ref('messages');
+    //this.getMessageFromRoom = this.getMessageFromRoom.bind(this);
   }
 
   componentDidMount() {
@@ -19,9 +21,14 @@ class MessageList extends Component {
     });
   }
 
+  getMessageFromRoom(activeRoom) {
+    //activeRoom.filter()
+  }
+
 
 
   render() {
+    console.log(this.props.activeRoom);
     return(
       <div>
       <h1> Messages </h1>
