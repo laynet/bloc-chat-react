@@ -29,14 +29,15 @@ class App extends Component {
   setActiveRoom(roomFromChild){
     this.setState({activeRoom: roomFromChild });
     //console.log(roomFromChild.key);
-    this.props.getMessageFromRoom();
   }
+
+
 
   render() {
     return (
       <div className="App">
         <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
-        <MessageList firebase={firebase} />
+        <MessageList firebase={firebase}/>
       </div>
     );
   }
