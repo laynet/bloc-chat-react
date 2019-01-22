@@ -37,7 +37,7 @@ class App extends Component {
     return (
       <div className="App">
         <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
-        <MessageList firebase={firebase}/>
+        <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
       </div>
     );
   }
