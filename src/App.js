@@ -20,7 +20,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeRoom: ""
+      activeRoom: "",
+      currentUser: "Guest"
+      //store data provided by firebase authentication
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
@@ -28,8 +30,14 @@ class App extends Component {
 
   setActiveRoom(roomFromChild){
     this.setState({activeRoom: roomFromChild });
-    //console.log(roomFromChild.key);
   }
+
+  setUser(user) {
+    this.setState({ currentUser: user.displayName});
+
+  //pass down to User.js
+}
+
 
 
 
@@ -38,6 +46,7 @@ class App extends Component {
       <div className="App">
         <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
+        <User
       </div>
     );
   }
