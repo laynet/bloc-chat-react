@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: "",
-      currentUser: null,
+      currentUser: "",
       //store data provided by firebase authentication
 
     };
