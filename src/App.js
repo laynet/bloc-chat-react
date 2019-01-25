@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: "",
-      currentUser: "Guest"
+      currentUser: null,
       //store data provided by firebase authentication
 
     };
@@ -36,6 +36,7 @@ class App extends Component {
 
   setUser(user) {
     this.setState({ currentUser: user.displayName});
+    console.log('setUser called');
 }
 
 
@@ -44,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <User firebase={firebase} currentUser={this.state.currentUser}/>
+        <User firebase={firebase} currentUser={this.state.currentUser} setUser={this.setUser}/>
         <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
       </div>

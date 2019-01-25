@@ -14,6 +14,7 @@ class User extends Component {
 
   componentDidMount() {
     this.props.firebase.auth().onAuthStateChanged( user => {
+      console.log(user);
       this.props.setUser(user);
     });
   }
@@ -21,20 +22,40 @@ class User extends Component {
   signIn() {
     console.log('hello');
     const provider = new this.props.firebase.auth.GoogleAuthProvider();
-    this.props.firebase.auth().signInWithPopup( provider );
+    this.props.firebase
+      .auth()
+      .signInWithPopup( provider )
+      .then(function(result) {
+        console.log(result);
+        console.log('Success Google Login');
+      })
+      .catch(function(error) {
+        console.log(error);
+        console.log('Failed to Sign in with Google');
+      });
   }
 
   signOut() {
     console.log('hello');
-    this.props.firebase.auth().signOut();
+    this.props.firebase
+    .auth()
+    .signOut()
+    .then(function(result) {
+        console.log(result);
+        console.log('Successful Sign Out');
+      })
+      .catch(function(error) {
+        console.log(error);
+        console.log('Failed to Sign Out');
+      });
   }
 
   render() {
     return(
       <div>
+        <section className="show-user">Current User: {this.props.user ? this.props.currentUser.displayName : 'Guest'}</section>
         <button onClick={this.signIn}>Sign In</button>
         <button onClick={this.signOut}>Sign Out</button>
-        <div>Current User: {this.props.currentUser}</div>
       </div>
     );
   }
