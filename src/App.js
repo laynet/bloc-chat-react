@@ -3,6 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList.js';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
       activeRoom: "",
       currentUser: "Guest"
       //store data provided by firebase authentication
+    
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
@@ -44,9 +46,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <User firebase={firebase} currentUser={this.state.currentUser}/>
         <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom}/>
         <MessageList firebase={firebase} activeRoom={this.state.activeRoom}/>
-        <User
       </div>
     );
   }
