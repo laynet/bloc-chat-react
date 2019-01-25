@@ -24,7 +24,7 @@ class App extends Component {
       activeRoom: "",
       currentUser: "Guest"
       //store data provided by firebase authentication
-    
+
     };
 
     this.setActiveRoom = this.setActiveRoom.bind(this);
@@ -36,8 +36,6 @@ class App extends Component {
 
   setUser(user) {
     this.setState({ currentUser: user.displayName});
-
-  //pass down to User.js
 }
 
 

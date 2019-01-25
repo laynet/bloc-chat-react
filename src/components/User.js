@@ -34,7 +34,7 @@ class User extends Component {
       <div>
         <button onClick={this.signIn}>Sign In</button>
         <button onClick={this.signOut}>Sign Out</button>
-        <div>Current User: {this.props.currentUser.displayName}</div>
+        <div>Current User: {this.props.currentUser}</div>
       </div>
     );
   }
