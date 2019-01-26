@@ -53,7 +53,7 @@ class User extends Component {
   render() {
     return(
       <div>
-        <section className="show-user">Current User: {this.props.user ? this.props.currentUser.displayName : 'Guest'}</section>
+        <section className="show-user">Current User: {this.props.user ? this.props.user : 'Guest'}</section>
         <button onClick={this.signIn}>Sign In</button>
         <button onClick={this.signOut}>Sign Out</button>
       </div>
