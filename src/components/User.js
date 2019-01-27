@@ -4,12 +4,8 @@ import App from '../App.js';
 class User extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
-
-    this.signIn = this.signIn.bind(this);
-    this.signOut = this.signOut.bind(this);
+      this.signIn = this.signIn.bind(this);
+      this.signOut = this.signOut.bind(this);
   }
 
   componentDidMount() {
@@ -53,7 +49,7 @@ class User extends Component {
   render() {
     return(
       <div>
-        <section className="show-user">Current User: {this.props.user ? this.props.user : 'Guest'}</section>
+        <h4>{this.props.currentUser}</h4>
         <button onClick={this.signIn}>Sign In</button>
         <button onClick={this.signOut}>Sign Out</button>
       </div>
