@@ -49,7 +49,7 @@ class User extends Component {
   render() {
     return(
       <div>
-        <h4>{this.props.currentUser}</h4>
+        <h4>{this.props.currentUser ? this.props.currentUser.displayName : "Guest"}</h4>
         <button onClick={this.signIn}>Sign In</button>
         <button onClick={this.signOut}>Sign Out</button>
       </div>
