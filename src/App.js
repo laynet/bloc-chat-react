@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/';
 import RoomList from './components/RoomList.js';
 import MessageList from './components/MessageList';
 import User from './components/User';
@@ -22,7 +22,7 @@ class App extends Component {
     super(props);
     this.state = {
       activeRoom: "",
-      currentUser: "Guest",
+      currentUser: null,
       //store data provided by firebase authentication
 
     };
