@@ -6,7 +6,7 @@ Verify that messages are submitted to the active chat room.
 Verify that your username is associated with each message you create.
 Verify that new messages are associated with no chat rooms other than the active room.
 
-
+.push( ) created messages to active room
 
 
 
