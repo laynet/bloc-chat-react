@@ -50,7 +50,7 @@ class RoomList extends Component {
       <div>
         <form onSubmit={this.createRoom}>
           <input type="text" value={this.state.newRoomName} onChange={this.handleChange}/>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Create Chat Room" />
         </form>
         <ul>
           {this.state.rooms.map( (room, index) =>

@@ -6,11 +6,11 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-      activeMessage: ""
+      activeMessage: "",
+      newMessageContent: null
     };
 
     this.messagesRef = this.props.firebase.database().ref('messages');
-    //this.getMessageFromRoom = this.getMessageFromRoom.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +19,17 @@ class MessageList extends Component {
       message.key = snapshot.key;
       this.setState({ messages: this.state.messages.concat( message ) })
     });
+  }
+
+  createMessage(NewMessage){
+    this.messagesRef.push(
+      //send message to active room
+    );
+    this.setState({ newMessageContent: ''});
+  }
+
+  handleChange(e) {
+    this.setState({ newMessageContent: e.target.value });
   }
 
 
@@ -33,9 +44,17 @@ class MessageList extends Component {
             .filter( message =>  message.roomId === this.props.activeRoom.key)
             .map( (message, index) =>
               <li key={index}>{message.content}</li>
-            )
-          }
+            )}
         </ul>
+        <h3>Active Room: {this.props.activeRoom.key ? this.props.activeRoom.key : "choose a room from above to send a message"}</h3>
+        <h4>Create message:</h4>
+        <form onSubmit={ e => {
+          e.preventDefault();
+          this.createMessage(this.state.newMessageContent);
+        }}>
+          <input type="text" onChange={ (e) => this.handleChange(e)} />
+        </form>
+        //create a form to submit messages, use .push() on createMessage reference
       </div>
     );
   }
