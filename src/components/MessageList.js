@@ -22,9 +22,12 @@ class MessageList extends Component {
   }
 
   createMessage(NewMessage){
-    this.messagesRef.push(
-      //send message to active room
-    );
+    this.messagesRef.push({
+      roomId: this.props.activeRoom.key,
+      username: this.props.user,
+      content: this.state.newMessageContent,
+      createdAt: this.props.firebase.database.ServerValue.TIMESTAMP
+    });
     this.setState({ newMessageContent: ''});
   }
 
@@ -52,7 +55,8 @@ class MessageList extends Component {
           e.preventDefault();
           this.createMessage(this.state.newMessageContent);
         }}>
-          <input type="text" onChange={ (e) => this.handleChange(e)} />
+          <input type="text" value={this.state.newMessageContent} onChange={ (e) => this.handleChange(e)} />
+          <input type="submit" />
         </form>
         //create a form to submit messages, use .push() on createMessage reference
       </div>
