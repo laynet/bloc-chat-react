@@ -4,6 +4,7 @@ In the message object, there was a username property that held a string referrin
 
 Verify that messages are submitted to the active chat room.
 *return error if no chat room is selected before submitting message
+*return pop up if not signed in
 Verify that your username is associated with each message you create.
 Verify that new messages are associated with no chat rooms other than the active room.
 
