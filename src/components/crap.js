@@ -3,8 +3,8 @@ Use the .push() method on your messages reference to add new messages, just as y
 In the message object, there was a username property that held a string referring to the user crafting the message. Populate that property with the current user's username. You'll need to pass user down as a prop from the App component.
 
 Verify that messages are submitted to the active chat room.
-*return error if no chat room is selected before submitting message
-*return pop up if not signed in
+*return error if no chat room is selected before submitting message??
+*return pop up if not signed in??
 Verify that your username is associated with each message you create.
 Verify that new messages are associated with no chat rooms other than the active room.
 
