@@ -58,7 +58,6 @@ class MessageList extends Component {
           <input type="text" value={this.state.newMessageContent} onChange={ (event) => this.handleChange(event)} />
           <input type="submit" />
         </form>
-        //create a form to submit messages, use .push() on createMessage reference
       </div>
     );
   }
