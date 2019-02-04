@@ -14,3 +14,5 @@ https://github.com/MichaelDCooper/chatroom-app/blob/52d25b30f77a901f948723894632
 
 
 https://github.com/MichaelDCooper/chatroom-app
+
+https://www.bloc.io/resources/creating-firebase-data-using-the-dashboard-ui

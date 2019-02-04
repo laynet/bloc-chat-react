@@ -7,7 +7,7 @@ class MessageList extends Component {
     this.state = {
       messages: [],
       activeMessage: "",
-      newMessageContent: null
+      newMessageContent: ""
     };
 
     this.messagesRef = this.props.firebase.database().ref('messages');
@@ -23,16 +23,16 @@ class MessageList extends Component {
 
   createMessage(NewMessage){
     this.messagesRef.push({
-      roomId: this.props.activeRoom.key,
-      username: this.props.user,
+      roomId: this.props.activeRoomId,
+      username: this.props.currentUser,
       content: this.state.newMessageContent,
       createdAt: this.props.firebase.database.ServerValue.TIMESTAMP
     });
     this.setState({ newMessageContent: ''});
   }
 
-  handleChange(e) {
-    this.setState({ newMessageContent: e.target.value });
+  handleChange(event) {
+    this.setState({ newMessageContent: event.target.value });
   }
 
 
@@ -55,7 +55,7 @@ class MessageList extends Component {
           e.preventDefault();
           this.createMessage(this.state.newMessageContent);
         }}>
-          <input type="text" value={this.state.newMessageContent} onChange={ (e) => this.handleChange(e)} />
+          <input type="text" value={this.state.newMessageContent} onChange={ (event) => this.handleChange(event)} />
           <input type="submit" />
         </form>
         //create a form to submit messages, use .push() on createMessage reference
