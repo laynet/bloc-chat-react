@@ -31,6 +31,17 @@ class MessageList extends Component {
     this.setState({ newMessageContent: ''});
   }
 
+  deleteMessage(messageName) {
+    this.messagesRef.child(messageName.key).remove();
+    const newMessages = "";
+    this.state.messages.map((message, index) => {
+      if (message.key != messageName.key) {
+        newMessages.push(message);
+      }
+    });
+    this.setState({messages: newMessages});
+  }
+
   handleChange(event) {
     this.setState({ newMessageContent: event.target.value });
   }
@@ -46,8 +57,7 @@ class MessageList extends Component {
           {this.state.messages
             .filter( message =>  message.roomId === this.props.activeRoom.key)
             .map( (message, index) =>
-              <li key={index}>{message.content} from: {message.username}</li>
-            )}
+              <li key={index}>{message.content} from: {message.username}</li>)}
         </ul>
         <h3>Active Room: {this.props.activeRoom.key ? this.props.activeRoom.key : "choose a room from above to send a message"}</h3>
         <h4>Create message:</h4>

@@ -14,7 +14,7 @@ class RoomList extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.roomsRef = this.props.firebase.database().ref('rooms');
     this.handleClick = this.handleClick.bind(this);
-    this.deleteRoom = this.deleteRoom.bind(this);
+
   }
 
   componentDidMount() {
@@ -35,6 +35,12 @@ class RoomList extends Component {
     console.log('createRoom');
   }
 
+  deleteRoom(index) {
+    this.roomsRef.child(index.key).remove();
+    this.setState({ rooms: this.state.rooms.filter(room => room !== index) })
+
+  }
+
   handleChange(event){
     console.log('handleChange');
     this.setState({newRoomName: event.target.value});
@@ -43,13 +49,10 @@ class RoomList extends Component {
   handleClick(event){
     event.preventDefault();
     this.props.setActiveRoom(this.roomsRef.child(event.target.textContent));
+    console.log("yo");
   }
 
-  deleteRoom(roomKey) {
-    console.log('delete');
-    const room = this.props.firebase.database().ref('rooms/' + roomKey);
-    room.remove();
-  }
+
 
 
   render() {
@@ -61,7 +64,11 @@ class RoomList extends Component {
         </form>
         <ul>
           {this.state.rooms.map( (room, index) =>
-          <li key={index} onClick={this.handleClick}>{room.name}</li>)}
+          <li key={index} onClick={this.handleClick}>{room.name}>
+          <button id="deleteRoom" onClick={ () => this.deleteRoom(room) }>
+          delete</button>
+          </li>)}
+
         </ul>
       </div>
     );
