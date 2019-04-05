@@ -6,7 +6,7 @@ class MessageList extends Component {
     super(props);
     this.state = {
       messages: [],
-      activeMessage: "",
+      activeMessage: [],
       newMessageContent: ""
     };
 
@@ -31,12 +31,22 @@ class MessageList extends Component {
     this.setState({ newMessageContent: ''});
   }
 
-  deleteMessage(message) {
-    this.messagesRef.child(message.key).remove();
-    // wait do i set state here? this.setState({ activeMessage: this.state.})
+  deleteMessage(messageId) {
+    this.messagesId.remove();
+
     console.log("deleteMessage");
   }
-  
+
+//   removePeople(e) {
+//   const array = [...this.state.people]; // make a separate copy of the array
+//   const index = array.indexOf(e.target.value)
+//   if (index !== -1) {
+//     array.splice(index, 1);
+//     this.setState({people: array});
+//   }
+// }
+
+
 
 
   handleChange(event) {
@@ -55,7 +65,7 @@ class MessageList extends Component {
             .filter( message =>  message.roomId === this.props.activeRoom.key)
             .map( (message, index) =>
               <li key={index}>{message.content} from: {message.username}>
-              <button id="deleteMessage" onClick={ () => this.deleteMessage(message) }>
+              <button id="deleteMessage" onClick={ (e) => this.deleteMessage(e) }>
               X </button>
               </li>)}
         </ul>
