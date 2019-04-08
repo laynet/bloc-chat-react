@@ -31,8 +31,8 @@ class MessageList extends Component {
     this.setState({ newMessageContent: ''});
   }
 
-  deleteMessage(messageId) {
-    this.messagesId.remove();
+  deleteMessage(message) {
+  
 
     console.log("deleteMessage");
   }
@@ -65,7 +65,7 @@ class MessageList extends Component {
             .filter( message =>  message.roomId === this.props.activeRoom.key)
             .map( (message, index) =>
               <li key={index}>{message.content} from: {message.username}>
-              <button id="deleteMessage" onClick={ (e) => this.deleteMessage(e) }>
+              <button id="deleteMessage" onClick={ (e) => this.deleteMessage(message.key) }>
               X </button>
               </li>)}
         </ul>
